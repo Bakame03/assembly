@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  nasm-td2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nasm-td2
+    image: nasm-td2:0.1
+    volumes:
+      - .:/app   # Volume permettant de développer en local et exécuter du code dans le conteneur en exécution.
+    stdin_open: true 
+    tty: true
+    networks:
+      - NASM-TD2-net
+
+networks:
+  NASM-TD2-net:
+      name: NASM-TD2-net
+      external: false
+
+volumes:
+  nasm-td2:
+    external: false
