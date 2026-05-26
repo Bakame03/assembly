@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  nasm-td1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nasm-tp1
+    image: nasm-tp1:0.1
+    develop:
+      watch:
+        - action: sync
+          path: ./
+          target: /app
+          ignore:
+            - Build
+    tty: true
+    networks:
+      - NASM-TP1-net
+
+networks:
+  NASM-TP1-net:
+      name: NASM-TP1-net
+      external: false
