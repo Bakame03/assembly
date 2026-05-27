@@ -6,38 +6,35 @@
 	STDOUT    equ 1
 	SUCCES    equ 0
 
-extern lireCaractere
-extern afficherCaractere	
+extern afficherEntier
+extern lireEntier
 extern afficherString
-extern lireString
-extern lireDouble
-extern afficherDouble
 
 section .data
-	messageBase db "Donnez moi la base du triangle :", 0
-	messageHauteur db "Donnez moi la hauteur du triangle :", 0
-	messageAire db "L'Aire du triangle est :", 0
+	message db "Donnez moi le nombre suivant :", 0
+	messageMax db "Le nombre maximun est :", 0
 
 	base dq 0.0
 	hauteur dq 0.0
 	deux dq 2.0
 section .bss
-	carac resb 1
-	majus resb 1
+	compteur resd 1
 
-	phrase  resb 100 	
+	nombres resq 5
 section .text
 	global main
-main:	
+main:
+
 	;; Ajoutez votre code ici.
 
+	
 Fin :
        ; Code de finalisation du programme.
        mov eax, SYS_EXIT
        mov ebx, 0
        int 80h
 
-calculerAireTriangle:	
+maxDe5Nombres:	
 	;; Ajoutez votre code ici.
-	
+
 	RET

@@ -1,54 +1,31 @@
 /**
  * util.cpp
- * Ce fichier contient des fonctions qui vous seront utiles pour gérer l'entrée sortie
+ * Ce fichier contient des fonctions qui vous seront utiles pour gérer l'entrée sortie 
  * de vos programmes en assembleur.
- * Auteur : Ricardo Uribe L.
- */
+ * Auteur : Ricardo Uribe L. 
+ */	
 
 #include <stdio.h>
 #include <iostream>
 #include <string>
 
-extern "C" int afficherStringPlusValue(char *chaine, int value)
-{
-  std::cout << chaine << value << std::endl;  
-  return 0;
-}
-
-extern "C" int afficherStringPlusInt(char *chaine, int value)
-{
-  std::cout << chaine << value << std::endl;  
-  return 0;
-}
-
-extern "C" int afficherStringPluslong(char *chaine, long long value)
-{
-  std::cout << chaine << value << std::endl;  
-  return 0;
-}
-
-extern "C" int afficherStringPlusShort(char *chaine, short value)
-{
-  std::cout << chaine << value << std::endl;  
-  return 0;
-}
-
 extern "C" int afficherFloat(float val)
 {
-  std::cout << val << std::endl;
+  //printf("%f\n", val);
+  std::cout << val << std::endl;  
   return 0;
 }
 
 extern "C" int afficherDouble(double val)
 {
-//  printf("%lf\n", val);
+//  printf("%lf\n", val);  
   std::cout << val << std::endl;
   return 0;
 }
 
 extern "C" int afficherEntier(int val)
 {
-	// printf("%d\n", val);
+	// printf("%d\n", val);  
   std::cout << val << std::endl;
   return 0;
 }
@@ -56,7 +33,7 @@ extern "C" int afficherEntier(int val)
 extern "C" int afficherLong(long val)
 {
 //  printf("%ld\n", val);
-  std::cout << val << std::endl;
+  std::cout << val << std::endl;  
   return 0;
 }
 
@@ -85,6 +62,7 @@ extern "C" int afficherStringMessage(char *chaine)
   std::cout << strChaine << std::endl;
   return 0;
 }
+
 extern "C" int afficherCaractere(char caractere)
 {
   std::cout << caractere << std::endl;

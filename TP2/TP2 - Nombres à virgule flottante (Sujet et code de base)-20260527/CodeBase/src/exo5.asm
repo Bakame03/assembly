@@ -6,17 +6,23 @@
 	STDOUT    equ 1
 	SUCCES    equ 0
 
-extern lireCaractere
-extern afficherCaractere	
+extern afficherEntier
+extern afficherDouble
+extern afficherFloat
+extern lireEntier
+extern lireDouble
 extern afficherString
 
 section .data
-	msgLettre db "Donnez moi la lettre à transformer :", 0
-	msgMajuscule db "La lettre transformée est :", 0
+	msgQuantite db "Donnez-moi la quantité de nombres à récupérer :", 0
+	msgNombre db "Donnez-moi le nombre suivant :", 0
+	msgMoyenne db "La moyenne des nombres fournis est :", 0
 
+	zero dq 4.0
+
+	compteur dd 0
 section .bss
-	carac resb 1
-	majus resb 1
+	quantite resd 1
 	
 section .text
 	global main
@@ -30,7 +36,7 @@ Fin :
        int 80h
 
 
-majuscule:	
+calculerMoyenne:
 	;; Ajoutez votre code ici.
-
+	
 	ret

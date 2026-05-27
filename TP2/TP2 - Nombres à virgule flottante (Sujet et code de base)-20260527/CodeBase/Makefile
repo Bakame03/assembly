@@ -1,7 +1,7 @@
 sources := $(wildcard src/*.asm)
 objects := $(patsubst src/%.asm,%.o,$(sources))
 
-executables := exo1 exo2 exo3
+executables := exo1 exo2 exo3 exo3 exo4 exo5 exo6
 
 all: $(executables)
 	rm -fr Build/*.o
