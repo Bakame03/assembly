@@ -7,33 +7,38 @@
 	SUCCES    equ 0
 
 extern afficherEntier
+extern afficherDouble
 extern lireEntier
+extern lireDouble
 extern afficherString
 extern afficherStringMessage
 
 section .data
-	msgA db "Donnez-moi un nombre a :", 0
-	msgB db "Donnez- moi un nombre b :", 0
+	msgSeuil db "Donnez-moi le seuil d'arrêt :", 0
+	msgDelta db "Donnez-moi le delta d'échantillonnage :", 0
 
-	msgErreur db "Erreur, a est plus grand que  b.", 0
+	zero dq 0.0
+	deux dq 2.0
+	trois dq 3.0
+	cinq dq 5.0
+	un dq 1.0
 
+	compteur dd 0
 section .bss
-	a resd 1
-	b resd 1
+	seuil resq 1
+	delta resq 1
+	cosinus resq 1
+	sinus resq 1
+	angle resq 1
+
+	t resq 1
+	y resq 1
 
 section .text
 	global main
 main:
-	;; Il faut coder ici.
+	;; Il faut coder ici. 
 
-	mov rdi, msgA           
-    call afficherString     
-    
-    call lireEntier         
-    mov [a], eax                 
-
-		
-	
 Fin :
        ; Code de finalisation du programme.
        mov eax, SYS_EXIT
