@@ -2,7 +2,7 @@
 	SYS_EXIT  equ 1
 	SYS_LIRE  equ 3
 	SYS_ECRIRE equ 4
-	STDIN     equ 2
+	STDIN     equ 0
 	STDOUT    equ 1
 	SUCCES    equ 0
 
@@ -21,21 +21,20 @@ section .bss
 section .text
 	global main
 main:	
-	;; Ajoutez votre code ici.
-	mov rdi, msgLettre
+    mov rdi, msgLettre
     call afficherString
-	call lireCaractere
-	mov [carac], al
-
-	;; ------------------------
-	mov edi, [carac]            
-    call majuscule          
+    call lireCaractere
+    mov [carac], al
+    ;; ------------------------
+    mov edi, 0              ;; vide le registre
+    mov dil, [carac]        ;; 1 octet
+    call majuscule
     mov [majus], al
     ;; ------------------------
-	mov rdi, msgMajuscule   
+    mov rdi, msgMajuscule   
     call afficherString
-
-	mov edi, [majus]        
+    mov edi, 0              ;; vide le registre
+    mov dil, [majus]        ;; 1 octet
     call afficherCaractere
 	
 Fin :
@@ -44,9 +43,7 @@ Fin :
        mov ebx, 0
        int 80h
 
-
 majuscule:	
-	;; Ajoutez votre code ici.
-	mov eax, edi         
-	sub eax, 32             
+    mov eax, edi         
+    sub eax, 32             
     ret

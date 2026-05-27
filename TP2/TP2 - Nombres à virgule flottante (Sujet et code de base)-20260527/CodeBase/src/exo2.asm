@@ -35,11 +35,21 @@ Fin :
 	;; La fonction qui convertisse la chaîne de caractères en capital case. 
 capitalCase:	
 	;; Ajoutez votre code ici.
+	push rbp
+	mov rbp, rsp
 
-	ret
+	mov rax, 0
+	mov byte [rdi + rax], 32
+Boucle:
+	cmp rax, 0
+	je suivant
+
+	cmp byte [rdi + rax], ' '
+	jne suivant
 
 majuscule:	
 	;; Ajoutez votre code ici.
+	SUB BYTE [rdi + rax + 1], 32
 	
 	ret
 	
