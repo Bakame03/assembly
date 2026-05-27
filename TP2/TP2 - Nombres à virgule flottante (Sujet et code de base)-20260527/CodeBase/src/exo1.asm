@@ -6,7 +6,7 @@
 	STDOUT    equ 1
 	SUCCES    equ 0
 
-extern lireCaractere
+extern lireCaractere	
 extern afficherCaractere	
 extern afficherString
 
@@ -22,6 +22,21 @@ section .text
 	global main
 main:	
 	;; Ajoutez votre code ici.
+	mov rdi, msgLettre
+    call afficherString
+	call lireCaractere
+	mov [carac], al
+
+	;; ------------------------
+	mov edi, [carac]            
+    call majuscule          
+    mov [majus], al
+    ;; ------------------------
+	mov rdi, msgMajuscule   
+    call afficherString
+
+	mov edi, [majus]        
+    call afficherCaractere
 	
 Fin :
        ; Code de finalisation du programme.
@@ -32,5 +47,6 @@ Fin :
 
 majuscule:	
 	;; Ajoutez votre code ici.
-
-	ret
+	mov eax, edi         
+	sub eax, 32             
+    ret
